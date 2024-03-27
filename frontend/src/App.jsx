@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {  Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 import './App.css';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -23,12 +23,12 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router> 
       <NavBar/>
       <Routes>
         <Route exact path='/' element={<Home loggedIn={loggedIn} onLogout={handleLogout} />} />
-        <Route exact path='/login' element={ <Login onLogin={handleLogin} />} />
-        <Route exact path='/register' element={  <Register onRegister={handleRegister} />} />
+        <Route exact path='/login' element={<Login onLogin={handleLogin} />} />
+        <Route exact path='/register' element={<Register onRegister={handleRegister} />} />
       </Routes>
     </Router>
   );

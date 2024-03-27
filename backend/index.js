@@ -4,7 +4,9 @@ const { userRouter } = require("./routes/user.routes")
 const { auth } = require('./middleware/auth.middleware')
 const cors = require('cors');
 const socketIo = require('socket.io')
-const http=require('http')
+const http=require('http');
+const {  videoRouter } = require("./routes/video.routes");
+const { chatrouter } = require("./routes/chat.routes");
 const app = express()
 const server = http.createServer(app);
 const io = socketIo(server);
@@ -15,10 +17,9 @@ app.use(express.json())
 
 app.use("/users", userRouter);
 
-
-app.use("/stream/videos", auth, (req, res) => {
-	res.send({msg:"You are in the private route"})
-})
+ 
+app.use("/videos",auth,videoRouter)
+app.use('/chat',auth,chatrouter)
 
 app.listen(process.env.port, async() => {
 	try {

@@ -2,7 +2,7 @@ const express = require('express');
 const chatrouter = express.Router();
 const { chatModel } = require('../model/chat.model');
 const {auth}=require('../middleware/auth.middleware')
-chatrouter.get('/chat', auth, async(req, res) => {
+chatrouter.get('/', auth, async(req, res) => {
     try {
         const { message } = req.body;
         const newMessage = new chatModel({

@@ -14,4 +14,6 @@ videoRouter.post('/upload', async(req, res) => {
     }
 })
 
-export default videoRouter;
+module.exports = {
+    videoRouter
+}

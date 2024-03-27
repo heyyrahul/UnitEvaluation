@@ -4,7 +4,7 @@ import io from "socket.io-client";
 const Chat = () => {
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('');
-    const socket = io('http://localhost:3000');
+    const socket = io('http://localhost:3000/chat');
 
     useEffect(() => {
         socket.on('connect', () => {
